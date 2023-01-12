@@ -16,7 +16,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::paginate(5);
+        $comics = Comic::orderBy('id','desc')->paginate(5);
 
         return view('comics.index', compact('comics'));
     }
@@ -52,7 +52,7 @@ class ComicController extends Controller
         $new_comic->type= $form_data['type'];
         $new_comic->save();
 
-        redirect()->route('comics.show', $new_comic);
+        return redirect()->route('comics.show', $new_comic);
     }
 
     /**
