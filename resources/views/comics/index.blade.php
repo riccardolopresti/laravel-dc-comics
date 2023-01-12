@@ -17,20 +17,26 @@
                   </tr>
                 </thead>
                 <tbody>
+
                     @forelse ($comics as $comic)
                         <tr>
                             <th scope="row">{{$comic->id}}</th>
                             <td>{{$comic->title}}</td>
                             <td>{{$comic->type}}</td>
-                            <td>xxxxx</td>
+                            <td>
+                                <a class="btn btn-primary" href="{{route('comics.show', $comic)}}" role="button"><i class="fa-solid fa-eye"></i></a>
+                                <a class="btn btn-warning" href="#" role="button"><i class="fa-solid fa-pencil"></i></a>
+                                <a class="btn btn-danger" href="#" role="button"><i class="fa-solid fa-trash"></i></a>
+                            </td>
                         </tr>
                     @empty
-
+                        <h3>Nessun risultato!</h3>
                     @endforelse
-
 
                 </tbody>
               </table>
+
+              {{ $comics->links() }}
         </div>
 
     </div>

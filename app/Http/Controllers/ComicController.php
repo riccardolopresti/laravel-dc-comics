@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
+use function Ramsey\Uuid\v8;
+
 class ComicController extends Controller
 {
     /**
@@ -14,9 +16,9 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::paginate(5);
 
-        return view('comics.home', compact('comics'));
+        return view('comics.index', compact('comics'));
     }
 
     /**
@@ -48,7 +50,8 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        //
+
+        return view('comics.show', compact('comic'));
     }
 
     /**
