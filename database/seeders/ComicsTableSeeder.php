@@ -30,6 +30,5 @@ class ComicsTableSeeder extends Seeder
             $new_comic->save();
         }
 
-
     }
 }

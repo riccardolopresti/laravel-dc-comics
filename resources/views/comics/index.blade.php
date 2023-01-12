@@ -7,6 +7,8 @@
         <h1>Comics List</h1>
         <div class="col py-5">
 
+
+
             <table class="table">
                 <thead>
                   <tr>
@@ -35,6 +37,8 @@
 
                 </tbody>
               </table>
+
+              <a class="btn btn-success w-100 mb-5" href="{{route('comics.create')}}" role="button"><i class="fa-solid fa-plus"></i> Add New Comic</a>
 
               {{ $comics->links() }}
         </div>

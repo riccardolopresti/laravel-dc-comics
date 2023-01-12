@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug', 110)->unique();
             $table->text('description')->nullable();
             $table->string('thumb');
-            $table->string('price', 20);
+            $table->float('price', 5,2);
             $table->string('series', 80);
             $table->string('sale_date', 10);
             $table->string('type', 50);
