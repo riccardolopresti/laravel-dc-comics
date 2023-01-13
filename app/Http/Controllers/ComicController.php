@@ -93,8 +93,6 @@ class ComicController extends Controller
         $comic->update($form_data);
 
         return redirect()->route('comics.show', $comic);
-
-
     }
 
     /**
@@ -105,6 +103,8 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index')->with('delete',"L'elemento $comic->title è stato eliminato correttamente");
     }
 }

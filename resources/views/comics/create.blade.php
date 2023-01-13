@@ -51,6 +51,8 @@
 
             </form>
 
+            <a class="btn btn-success mt-5" href="{{route('comics.index')}}" role="button">Torna alla Home</a>
+
         </div>
     </div>
 </div>

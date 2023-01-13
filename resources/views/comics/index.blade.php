@@ -2,12 +2,18 @@
 
 @section('content')
 <div class="container">
+
+    @if (session('delete'))
+        <div class="alert alert-success" role="alert">
+            {{session('delete')}}
+        </div>
+    @endif
+
+
     <div class="row py-3">
 
         <h1 class="fw-bold">COMICS LIST</h1>
         <div class="col py-5">
-
-
 
             <table class="table">
                 <thead>
@@ -21,14 +27,19 @@
                 <tbody>
 
                     @forelse ($comics as $comic)
-                        <tr>
+                        <tr class="text-capitalize">
                             <th scope="row">{{$comic->id}}</th>
                             <td>{{$comic->title}}</td>
                             <td>{{$comic->type}}</td>
                             <td>
                                 <a class="btn btn-primary" href="{{route('comics.show', $comic)}}" role="button"><i class="fa-solid fa-eye"></i></a>
-                                <a class="btn btn-warning" href="{{route('comics.edit', $comic)}}" role="button"><i class="fa-solid fa-pencil"></i></a>
-                                <a class="btn btn-danger" href="#" role="button"><i class="fa-solid fa-trash"></i></a>
+                                <a class="btn btn-warning mx-2" href="{{route('comics.edit', $comic)}}" role="button"><i class="fa-solid fa-pencil"></i></a>
+                                <form class="d-inline" onsubmit="return confirm('Vuoi davvero eliminare eliminare {{$comic->title}}?')" action="{{route('comics.destroy', $comic)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-danger" title="delete"><i class="fa-solid fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @empty
