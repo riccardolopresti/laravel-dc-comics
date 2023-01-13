@@ -34,12 +34,7 @@
                             <td>
                                 <a class="btn btn-primary" href="{{route('comics.show', $comic)}}" role="button"><i class="fa-solid fa-eye"></i></a>
                                 <a class="btn btn-warning mx-2" href="{{route('comics.edit', $comic)}}" role="button"><i class="fa-solid fa-pencil"></i></a>
-                                <form class="d-inline" onsubmit="return confirm('Vuoi davvero eliminare eliminare {{$comic->title}}?')" action="{{route('comics.destroy', $comic)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-
-                                    <button type="submit" class="btn btn-danger" title="delete"><i class="fa-solid fa-trash"></i></button>
-                                </form>
+                                @include('comics.partials.delete-form')
                             </td>
                         </tr>
                     @empty

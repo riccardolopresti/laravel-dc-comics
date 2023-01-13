@@ -17,6 +17,10 @@
                   <p><strong>Tipo:</strong> {{$comic->type}}</p>
                   <p><strong>Uscita:</strong> {{$comic->sale_date}}</p>
                   <p class="card-text">{{$comic->description}}</p>
+
+                  <a class="btn btn-warning mx-2" href="{{route('comics.edit', $comic)}}" role="button"><i class="fa-solid fa-pencil"></i></a>
+                  @include('comics.partials.delete-form')
+
                 </div>
             </div>
 
