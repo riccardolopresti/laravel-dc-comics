@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row py-3">
 
-        <h2>Comics Detail</h2>
+        <h2 class="fw-bold">COMICS DETAIL</h2>
 
         <div class="col py-5">
 

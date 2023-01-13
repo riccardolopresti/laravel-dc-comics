@@ -20,6 +20,8 @@
 
 <body>
 
+    @include('comics.partials.header')
+
     <main>
         @yield('content')
     </main>
