@@ -9,7 +9,6 @@
         </div>
     @endif
 
-
     <div class="row py-3">
 
         <h1 class="fw-bold">COMICS LIST</h1>

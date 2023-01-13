@@ -36,27 +36,57 @@
 
                 <div class="mb-3">
                     <label for="thumb" class="form-label">Immagine *</label>
-                    <input type="text" class="form-control" id="thumb" name="thumb" value="{{old('thumb')}}" placeholder="Inserisci URL dell'immagine">
+                    <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{old('thumb')}}" placeholder="Inserisci URL dell'immagine">
+
+                    @error('thumb')
+                        <p class="invalid-feedback">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="price" class="form-label">Prezzo *</label>
-                    <input type="text" class="form-control" id="price" name="price" value="{{old('price')}}" placeholder="Inserisci il prezzo">
+                    <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{old('price')}}" placeholder="Inserisci il prezzo">
+
+                    @error('title')
+                        <p class="invalid-feedback">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="series" class="form-label">Serie *</label>
-                    <input type="text" class="form-control" id="series" name="series" value="{{old('series')}}" placeholder="Inserisci la serie">
+                    <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" value="{{old('series')}}" placeholder="Inserisci la serie">
+
+                    @error('series')
+                        <p class="invalid-feedback">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="sale_date" class="form-label">Data Uscita *</label>
-                    <input type="text" class="form-control" id="sale_date" name="sale_date" value="{{old('sale_date')}}" placeholder="Inserisci la data di uscita XXXX-XX-XX">
+                    <input type="text" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" value="{{old('sale_date')}}" placeholder="Inserisci la data di uscita XXXX-XX-XX">
+
+                    @error('sale_date')
+                        <p class="invalid-feedback">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="type" class="form-label">Tipo *</label>
-                    <input type="text" class="form-control" id="type" name="type" value="{{old('type')}}" placeholder="Inserisci il tipo">
+                    <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" value="{{old('type')}}" placeholder="Inserisci il tipo">
+
+                    @error('type')
+                        <p class="invalid-feedback">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
