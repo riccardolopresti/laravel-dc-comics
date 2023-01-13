@@ -10,6 +10,8 @@ class Comic extends Model
 {
     use HasFactory;
 
+    protected $fillable=['title','slug','description','thumb','price','series','sale_date','type'];
+
     public static function SlugGenerator($string){
 
         $slug = Str::slug($string, '-');
