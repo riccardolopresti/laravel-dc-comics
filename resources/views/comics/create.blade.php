@@ -2,6 +2,17 @@
 
 @section('content')
 <div class="container">
+
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="row py-3">
 
         <h2 class="fw-bold">COMICS ADD</h2>
@@ -13,33 +24,39 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">Titolo</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo">
+                    <label for="title" class="form-label">Titolo *</label>
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('title')}}" placeholder="Inserisci il titolo">
+
+                    @error('title')
+                        <p class="invalid-feedback">
+                            {{$message}}
+                        </p>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
-                    <label for="thumb" class="form-label">Immagine</label>
-                    <input type="text" class="form-control" id="thumb" name="thumb" placeholder="Inserisci URL dell'immagine">
+                    <label for="thumb" class="form-label">Immagine *</label>
+                    <input type="text" class="form-control" id="thumb" name="thumb" value="{{old('thumb')}}" placeholder="Inserisci URL dell'immagine">
                 </div>
 
                 <div class="mb-3">
-                    <label for="price" class="form-label">Prezzo</label>
-                    <input type="text" class="form-control" id="price" name="price" placeholder="Inserisci il prezzo">
+                    <label for="price" class="form-label">Prezzo *</label>
+                    <input type="text" class="form-control" id="price" name="price" value="{{old('price')}}" placeholder="Inserisci il prezzo">
                 </div>
 
                 <div class="mb-3">
-                    <label for="series" class="form-label">Serie</label>
-                    <input type="text" class="form-control" id="series" name="series" placeholder="Inserisci la serie">
+                    <label for="series" class="form-label">Serie *</label>
+                    <input type="text" class="form-control" id="series" name="series" value="{{old('series')}}" placeholder="Inserisci la serie">
                 </div>
 
                 <div class="mb-3">
-                    <label for="sale_date" class="form-label">Data Uscita</label>
-                    <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci la data di uscita XXXX-XX-XX">
+                    <label for="sale_date" class="form-label">Data Uscita *</label>
+                    <input type="text" class="form-control" id="sale_date" name="sale_date" value="{{old('sale_date')}}" placeholder="Inserisci la data di uscita XXXX-XX-XX">
                 </div>
 
                 <div class="mb-3">
-                    <label for="type" class="form-label">Tipo</label>
-                    <input type="text" class="form-control" id="type" name="type" placeholder="Inserisci il tipo">
+                    <label for="type" class="form-label">Tipo *</label>
+                    <input type="text" class="form-control" id="type" name="type" value="{{old('type')}}" placeholder="Inserisci il tipo">
                 </div>
 
                 <div class="mb-3">
